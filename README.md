@@ -1,6 +1,8 @@
 # Info-RAM: Herramienta de Diagnóstico de Hardware
 
-**Info-RAM** es una aplicación de escritorio desarrollada en C# (.NET 8, Windows Forms), diseñada para mostrar información técnica detallada sobre la memoria RAM y la placa madre (motherboard) de una PC. Está orientada tanto a técnicos de computadoras como a usuarios curiosos que deseen conocer la configuración interna de su equipo de forma rápida y sencilla.
+![Info-RAM Preview](images/preview.png)
+
+**Info-RAM** es una aplicación de escritorio robusta y fácil de usar, desarrollada en C# con .NET 8 y Windows Forms. Está diseñada para proporcionar a usuarios y técnicos información técnica detallada sobre la memoria RAM y la placa base (motherboard) de cualquier sistema Windows.
 
 ## ✨ Características Principales
 
@@ -30,15 +32,14 @@ Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
 
 *   **Sistema Operativo:** Windows 8, Windows 10 o Windows 11 (64-bit).
 *   **Framework:** .NET 8.0 Runtime.
-*   **Arquitectura**: x64 
 
 ## 🚀 Instalación y Uso
 
 ### Ejecutable Precompilado
 
-1.  Descarga la última versión desde la sección `Releases` del repositorio de GitHub.
-2.  Descomprime el archivo `.zip` o `.rar` descargado.
-3.  Ejecuta `InfoRAM.exe`.
+1.  Descarga el archivo `InfoRAM.zip` que se encuentra en la sección `Releases` del repositorio de GitHub.
+2.  Descomprime el archivo `InfoRAM.zip`.
+3.  Ejecuta `InfoRAM.exe` desde la carpeta descomprimida.
 
 ### Compilación desde el Código Fuente
 
@@ -49,6 +50,22 @@ Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
 2.  Abre la solución `InfoRAMApp.sln` con Visual Studio 2022 o una versión posterior.
 3.  Compila el proyecto en configuración `Release`.
 4.  El ejecutable se encontrará en el directorio `bin/Release/net8.0-windows/`.
+
+## 🛡️ Seguridad y Confianza
+
+**¡Su privacidad y la integridad de su sistema son nuestra prioridad!**
+
+Entendemos que descargar software de internet puede generar dudas. Por ello, queremos ser completamente transparentes sobre la seguridad de Info-RAM:
+
+*   **Código Limpio y Verificado:** Info-RAM ha sido desarrollada con un enfoque en la transparencia. El código fuente completo está disponible en este repositorio de GitHub, invitando a la comunidad y a expertos en seguridad a revisarlo para verificar su integridad y ausencia de funciones ocultas o maliciosas.
+
+*   **Sin Conexiones a Internet:** La aplicación funciona de manera 100% offline. No necesita ni intenta conectarse a internet, garantizando que sus datos y su privacidad permanezcan en su equipo.
+
+*   **Firma Digital (Autofirmada):** El ejecutable de Info-RAM está firmado digitalmente. Es importante destacar que, al ser un desarrollador independiente, el certificado utilizado es autofirmado. Esto puede generar una advertencia inicial por parte de Windows o su software antivirus. Sin embargo, esta firma garantiza que el archivo que ha descargado no ha sido modificado ni manipulado por terceros desde que fue publicado.
+
+*   **Diseño Minimalista:** Info-RAM se enfoca exclusivamente en su función principal: proporcionar información de hardware. No incluye funcionalidades adicionales que puedan comprometer el rendimiento o la seguridad de su sistema.
+
+> ✅ **Nota sobre las advertencias:** Es posible que Windows o su antivirus muestren una advertencia de seguridad al intentar ejecutar la aplicación. Si ve un mensaje como "Windows protegió su PC", puede hacer clic en "Más información" y luego en "Ejecutar de todas formas" con total tranquilidad, sabiendo que la aplicación es segura y ha sido verificada.
 
 ## 📝 Guardar Reporte
 
