@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+  <assemblyIdentity
+    version="1.0.0.0"
+    processorArchitecture="*"
+    name="InfoRAM"
+    type="win32" />
+
+  <description>Información detallada de la memoria RAM de la computadora</description>
+
+  <!-- Solicitar ejecución como administrador -->
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+
+  <!-- Declarar compatibilidad con versiones de Windows -->
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Windows Vista -->
+      <supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"/>
+      <!-- Windows 7 -->
+      <supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>
+      <!-- Windows 8 -->
+      <supportedOS Id="{4f476546-937c-45d6-b0a0-97e61c1e4aad}"/>
+      <!-- Windows 8.1 -->
+      <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d45799}"/>
+      <!-- Windows 10 -->
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
+      <!-- Windows 11 -->
+      <supportedOS Id="{d0c7c1f7-5380-4f3c-a47f-09e50bdc8f3a}"/>
+    </application>
+  </compatibility>
+
+  <!-- Soporte para controles visuales modernos -->
+    <dependency>
+    <dependentAssembly>
+      <assemblyIdentity
+        type="win32"
+        name="Microsoft.Windows.Common-Controls"
+        version="6.0.0.0"
+        processorArchitecture="*"
+        publicKeyToken="6595b64144ccf1df"
+        language="*" />
+    </dependentAssembly>
+  </dependency>
+
+  <!-- La configuración de DPI se gestiona mediante código en Program.cs -->
+
+</assembly>

@@ -1,0 +1,63 @@
+# Build results
+bin/
+obj/
+publish/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Windows image thumbnails
+Thumbs.db
+
+# Windows shortcuts
+*.lnk
+
+# Package directories
+packages/
+
+# Certificate and private keys
+*.pfx
+*.p12
+*.cer
+*.key
+*.pem
+
+# Logs
+*.log
+
+# Backup files
+*~
+*.bak
+
+# Visual Studio generated files
+.vs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Rider IDE
+.idea/
+
+# NuGet
+project.lock.json
+project.fragment.lock.json
+
+# OS generated files
+.DS_Store
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Generated reports and outputs
+Reporte_RAM.txt
+signature_verification_output.txt
+
+# Others
+_ReSharper*/
