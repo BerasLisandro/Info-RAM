@@ -48,6 +48,7 @@ Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
 
 *   **Sistema Operativo:** Windows 8, Windows 10 o Windows 11 (64-bit).
 *   **Framework:** .NET 8.0 Runtime.
+*   **Architecture:** x64
 
 ## 🚀 Instalación y Uso
 
