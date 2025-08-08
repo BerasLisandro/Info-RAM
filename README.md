@@ -1,6 +1,24 @@
 # Info-RAM: Herramienta de Diagnóstico de Hardware
 
+<!-- Badges -->
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Pablitus666/Info-RAM?style=flat-square)](https://github.com/Pablitus666/Info-RAM/releases)
+[![License](https://img.shields.io/badge/License-Proprietary-red.svg?style=flat-square)](LICENSE) <!-- Assuming a LICENSE file will be added or it's just a statement -->
+
+![Social Preview](images/Preview.png)
+
 **Info-RAM** es una aplicación de escritorio robusta y fácil de usar, desarrollada en C# con .NET 8 y Windows Forms. Está diseñada para proporcionar a usuarios y técnicos información técnica detallada sobre la memoria RAM y la placa base (motherboard) de cualquier sistema Windows.
+
+## 📖 Tabla de Contenidos
+- [✨ Características Principales](#-características-principales)
+- [📷 Capturas de pantalla](#-capturas-de-pantalla)
+- [🖥️ Requisitos del Sistema](#-requisitos-del-sistema)
+- [🚀 Instalación y Uso](#-instalación-y-uso)
+- [🛡️ Seguridad y Confianza](#-seguridad-y-confianza)
+- [📝 Guardar Reporte](#-guardar-reporte)
+- [🔒 Licencia](#-licencia)
+- [👨‍💻 Autor](#-autor)
+
+---
 
 ## ✨ Características Principales
 
@@ -30,13 +48,12 @@ Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
 
 *   **Sistema Operativo:** Windows 8, Windows 10 o Windows 11 (64-bit).
 *   **Framework:** .NET 8.0 Runtime.
-*   **Arquitectura:** x64
 
 ## 🚀 Instalación y Uso
 
 ### Ejecutable Precompilado
 
-1.  Descarga el archivo `InfoRAM.zip` que se encuentra en la sección `Releases` del repositorio de GitHub.
+1.  Descarga el archivo `InfoRAM.zip` desde la sección [**Releases**](https://github.com/Pablitus666/Info-RAM/releases) del repositorio de GitHub.
 2.  Descomprime el archivo `InfoRAM.zip`.
 3.  Ejecuta `InfoRAM.exe` desde la carpeta descomprimida.
 
