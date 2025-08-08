@@ -49,8 +49,8 @@ namespace InfoRAMApp
             Label texto = new Label
             {
                 Text = "Desarrollado por:\nPablo Téllez A.\n\nTarija - 2025",
+                Font = ScaleFont(new Font("Comic Sans MS", 14, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = Color.White,
-                Font = new Font("Comic Sans MS", 14, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
                 Margin = new Padding(10)
@@ -76,7 +76,7 @@ namespace InfoRAMApp
             Button btnCerrar = new Button
             {
                 Text = "Cerrar",
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Font = ScaleFont(new Font("Segoe UI", 10, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = Color.White,
                 Size = new Size(100, 36),
                 FlatStyle = FlatStyle.Flat,
@@ -109,6 +109,21 @@ namespace InfoRAMApp
             btnCerrar.Click += (s, e) => this.Close();
             mainLayout.Controls.Add(btnCerrar, 0, 1);
             mainLayout.SetColumnSpan(btnCerrar, 2); // Ocupar ambas columnas
+        }
+
+        // Método auxiliar para escalar fuentes (copiado de MainForm)
+        private Font ScaleFont(Font originalFont)
+        {
+            float currentDpi = this.DeviceDpi;
+            float defaultDpi = 96f; // DPI estándar de Windows
+
+            // Calcula el factor de escalado
+            float scaleFactor = currentDpi / defaultDpi;
+
+            // Escala el tamaño de la fuente
+            float newSize = originalFont.Size * scaleFactor;
+
+            return new Font(originalFont.FontFamily, newSize, originalFont.Style);
         }
     }
 }

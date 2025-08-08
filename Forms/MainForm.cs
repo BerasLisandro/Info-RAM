@@ -91,7 +91,7 @@ namespace InfoRAMApp
             titleLabel = new Label
             {
                 Text = "Información de la Computadora",
-                Font = new Font("Comic Sans MS", 20, FontStyle.Bold),
+                Font = ScaleFont(new Font("Comic Sans MS", 20, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill
@@ -117,7 +117,7 @@ namespace InfoRAMApp
 
             infoBox = new RichTextBox
             {
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Font = ScaleFont(new Font("Segoe UI", 11, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = ColorTranslator.FromHtml("#023047"),
                 BackColor = ColorTranslator.FromHtml("#A1D6E2"), // Debe coincidir con el contenedor
                 ReadOnly = true,
@@ -165,6 +165,21 @@ namespace InfoRAMApp
             btnInfo.Click += BtnInfo_Click;
 
             this.ResumeLayout(false);
+        }
+
+        // Método auxiliar para escalar fuentes
+        private Font ScaleFont(Font originalFont)
+        {
+            float currentDpi = this.DeviceDpi;
+            float defaultDpi = 96f; // DPI estándar de Windows
+
+            // Calcula el factor de escalado
+            float scaleFactor = currentDpi / defaultDpi;
+
+            // Escala el tamaño de la fuente
+            float newSize = originalFont.Size * scaleFactor;
+
+            return new Font(originalFont.FontFamily, newSize, originalFont.Style);
         }
 
         private PictureBox CrearPictureBoxSeguroEscalado(string nombreImagen, Size size, Point location)
@@ -216,7 +231,7 @@ namespace InfoRAMApp
             var boton = new ImageButton
             {
                 Text = texto,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = ScaleFont(new Font("Segoe UI", 12, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = Color.White,
                 Size = new Size(180, 50),
                 Location = location,
