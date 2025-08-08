@@ -4,7 +4,7 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Pablitus666/Info-RAM?style=flat-square)](https://github.com/Pablitus666/Info-RAM/releases)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg?style=flat-square)](LICENSE) <!-- Assuming a LICENSE file will be added or it's just a statement -->
 
-![Social Preview](images/Preview.png)
+![Social Preview](images/socialpreview.png)
 
 **Info-RAM** es una aplicación de escritorio robusta y fácil de usar, desarrollada en C# con .NET 8 y Windows Forms. Está diseñada para proporcionar a usuarios y técnicos información técnica detallada sobre la memoria RAM y la placa base (motherboard) de cualquier sistema Windows.
 
