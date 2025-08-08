@@ -2,7 +2,7 @@
 
 ![Info-RAM Preview](images/preview.png)
 
-**Info-RAM** es una aplicación de escritorio robusta y fácil de usar, desarrollada en C# con .NET 8 y Windows Forms. Está diseñada para proporcionar a usuarios y técnicos información técnica detallada sobre la memoria RAM y la placa base (motherboard) de cualquier sistema Windows.
+**Info-RAM** es una aplicación de escritorio desarrollada en C# (.NET 8, Windows Forms), diseñada para mostrar información técnica detallada sobre la memoria RAM y la placa madre (motherboard) de una PC. Está orientada tanto a técnicos de computadoras como a usuarios curiosos que deseen conocer la configuración interna de su equipo de forma rápida y sencilla.
 
 ## ✨ Características Principales
 
@@ -20,10 +20,19 @@
     *   **Generación de Reportes:** Exporta un informe técnico completo a un archivo de texto (`Reporte_RAM.txt`), incluyendo un banner ASCII personalizado.
     *   **Información del Desarrollador:** Acceso rápido a los datos del autor de la aplicación.
 
+## 📷 Capturas de pantalla
+
+<p align="center">
+  <img src="preview.png" alt="Vista previa de la aplicación" width="600"/>
+</p>
+
+Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
+
 ## 🖥️ Requisitos del Sistema
 
 *   **Sistema Operativo:** Windows 8, Windows 10 o Windows 11 (64-bit).
 *   **Framework:** .NET 8.0 Runtime.
+*   **Arquitectura**: x64 
 
 ## 🚀 Instalación y Uso
 
