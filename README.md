@@ -1,7 +1,5 @@
 # Info-RAM: Herramienta de Diagnóstico de Hardware
 
-![Info-RAM Preview](images/preview.png)
-
 **Info-RAM** es una aplicación de escritorio robusta y fácil de usar, desarrollada en C# con .NET 8 y Windows Forms. Está diseñada para proporcionar a usuarios y técnicos información técnica detallada sobre la memoria RAM y la placa base (motherboard) de cualquier sistema Windows.
 
 ## ✨ Características Principales
@@ -32,6 +30,7 @@ Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
 
 *   **Sistema Operativo:** Windows 8, Windows 10 o Windows 11 (64-bit).
 *   **Framework:** .NET 8.0 Runtime.
+*   **Arquitectura:** x64
 
 ## 🚀 Instalación y Uso
 
