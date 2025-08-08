@@ -48,12 +48,16 @@ namespace InfoRAMApp
 
             Label texto = new Label
             {
-                Text = "Desarrollado por:\nPablo Téllez A.\n\nTarija - 2025",
+                Text = "Desarrollado por:
+Pablo Téllez A.
+
+Tarija - 2025",
                 Font = ScaleFont(new Font("Comic Sans MS", 14, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Dock = DockStyle.Fill,
-                Margin = new Padding(10)
+                Margin = new Padding(10),
+                AutoSize = true // Añadido para autoescalado de texto
             };
             mainLayout.Controls.Add(texto, 0, 0);
 

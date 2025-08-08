@@ -94,7 +94,8 @@ namespace InfoRAMApp
                 Font = ScaleFont(new Font("Comic Sans MS", 20, FontStyle.Bold)), // Escalado de fuente
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Fill
+                Dock = DockStyle.Fill,
+                AutoSize = true // Añadido para autoescalado de texto
             };
             headerLayout.Controls.Add(titleLabel, 1, 0);
 
