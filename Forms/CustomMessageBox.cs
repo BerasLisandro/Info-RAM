@@ -48,7 +48,7 @@ namespace InfoRAMApp
 
             Label texto = new Label
             {
-                Text = "Desarrollado por:
+                Text = @"Desarrollado por:
 Pablo Téllez A.
 
 Tarija - 2025",
