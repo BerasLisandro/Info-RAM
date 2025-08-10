@@ -16,7 +16,8 @@ namespace InfoRAMApp
 {
     public partial class MainForm : Form
     {
-        private Label titleLabel = null!;
+        
+        private PictureBox titlePictureBox = null!;
         private PictureBox leftIcon = null!;
         private PictureBox rightIcon = null!;
         private RichTextBox infoBox = null!;
@@ -64,7 +65,7 @@ namespace InfoRAMApp
                 BackColor = Color.Transparent,
                 Margin = new Padding(0)
             };
-            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 95));  // Fila para el encabezado
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));  // Fila para el encabezado (ahora autoajustable)
             mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F)); // Fila para el RichTextBox (ocupa el espacio restante)
             mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 80));  // Fila para los botones (aumentada en 15px)
             this.Controls.Add(mainLayout);
@@ -88,16 +89,9 @@ namespace InfoRAMApp
             leftIcon.Anchor = AnchorStyles.None; // Centrar en la celda
             headerLayout.Controls.Add(leftIcon, 0, 0);
 
-            titleLabel = new Label
-            {
-                Text = "Información de la Computadora",
-                Font = ScaleFont(new Font("Comic Sans MS", 20, FontStyle.Bold)), // Escalado de fuente
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Fill,
-                AutoSize = true // Añadido para autoescalado de texto
-            };
-            headerLayout.Controls.Add(titleLabel, 1, 0);
+            titlePictureBox = ImageUtils.CrearPictureBoxConImagenOriginal("titulo.png", Point.Empty);
+            titlePictureBox.Dock = DockStyle.Fill;
+            headerLayout.Controls.Add(titlePictureBox, 1, 0);
 
             rightIcon = CrearPictureBoxSeguroEscalado("mem.png", new Size(90, 90), Point.Empty);
             rightIcon.Dock = DockStyle.None; // Quitar Dock para que Anchor funcione
@@ -118,7 +112,7 @@ namespace InfoRAMApp
 
             infoBox = new RichTextBox
             {
-                Font = ScaleFont(new Font("Segoe UI", 11, FontStyle.Bold)), // Escalado de fuente
+                Font = new Font("Segoe UI", 11, FontStyle.Bold), // El escalado de fuente ahora es automático
                 ForeColor = ColorTranslator.FromHtml("#023047"),
                 BackColor = ColorTranslator.FromHtml("#A1D6E2"), // Debe coincidir con el contenedor
                 ReadOnly = true,
@@ -168,20 +162,7 @@ namespace InfoRAMApp
             this.ResumeLayout(false);
         }
 
-        // Método auxiliar para escalar fuentes
-        private Font ScaleFont(Font originalFont)
-        {
-            float currentDpi = this.DeviceDpi;
-            float defaultDpi = 96f; // DPI estándar de Windows
-
-            // Calcula el factor de escalado
-            float scaleFactor = currentDpi / defaultDpi;
-
-            // Escala el tamaño de la fuente
-            float newSize = originalFont.Size * scaleFactor;
-
-            return new Font(originalFont.FontFamily, newSize, originalFont.Style);
-        }
+        
 
         private PictureBox CrearPictureBoxSeguroEscalado(string nombreImagen, Size size, Point location)
         {
@@ -227,12 +208,14 @@ namespace InfoRAMApp
             return pb;
         }
 
+        
+
         private ImageButton CrearBotonConImagen(string texto, string nombreImagen, Point location)
         {
             var boton = new ImageButton
             {
                 Text = texto,
-                Font = ScaleFont(new Font("Segoe UI", 12, FontStyle.Bold)), // Escalado de fuente
+                Font = new Font("Segoe UI", 12, FontStyle.Bold), // El escalado de fuente ahora es automático
                 ForeColor = Color.White,
                 Size = new Size(180, 50),
                 Location = location,

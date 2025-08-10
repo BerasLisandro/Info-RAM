@@ -8,6 +8,7 @@ namespace InfoRAMApp
 {
     public class CustomMessageBox : Form
     {
+        private PictureBox infoPictureBox = null!;
         public static void Mostrar()
         {
             using var ventana = new CustomMessageBox();
@@ -46,20 +47,18 @@ namespace InfoRAMApp
             mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 50)); // Fila para el botón Cerrar
             this.Controls.Add(mainLayout);
 
-            Label texto = new Label
+            Panel infoPanel = new Panel
             {
-                Text = @"Desarrollado por:
-Pablo Téllez A.
-
-Tarija - 2025",
-                Font = ScaleFont(new Font("Comic Sans MS", 14, FontStyle.Bold)), // Escalado de fuente
-                ForeColor = Color.White,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Dock = DockStyle.Fill,
-                Margin = new Padding(10),
-                AutoSize = true // Añadido para autoescalado de texto
+                Size = new Size(300, 200), // Tamaño explícito para el panel contenedor de la imagen
+                Anchor = AnchorStyles.None, // Centrar el panel dentro de la celda del TableLayoutPanel
+                BackColor = Color.Transparent, // Fondo transparente
+                Padding = new Padding(35, 25, 15, 25) // Ajustar padding para mover la imagen a la derecha
             };
-            mainLayout.Controls.Add(texto, 0, 0);
+            infoPictureBox = ImageUtils.CrearPictureBoxConImagenOriginal("informacion.png", Point.Empty);
+            infoPictureBox.Dock = DockStyle.Fill; // La imagen rellena el panel
+            infoPictureBox.SizeMode = PictureBoxSizeMode.Zoom; // Asegurar que escala dentro de la caja
+            infoPanel.Controls.Add(infoPictureBox);
+            mainLayout.Controls.Add(infoPanel, 0, 0);
 
             PictureBox robot = new PictureBox
             {
@@ -80,7 +79,7 @@ Tarija - 2025",
             Button btnCerrar = new Button
             {
                 Text = "Cerrar",
-                Font = ScaleFont(new Font("Segoe UI", 10, FontStyle.Bold)), // Escalado de fuente
+                Font = new Font("Segoe UI", 10, FontStyle.Bold), // El escalado de fuente ahora es automático
                 ForeColor = Color.White,
                 Size = new Size(100, 36),
                 FlatStyle = FlatStyle.Flat,
@@ -115,19 +114,6 @@ Tarija - 2025",
             mainLayout.SetColumnSpan(btnCerrar, 2); // Ocupar ambas columnas
         }
 
-        // Método auxiliar para escalar fuentes (copiado de MainForm)
-        private Font ScaleFont(Font originalFont)
-        {
-            float currentDpi = this.DeviceDpi;
-            float defaultDpi = 96f; // DPI estándar de Windows
-
-            // Calcula el factor de escalado
-            float scaleFactor = currentDpi / defaultDpi;
-
-            // Escala el tamaño de la fuente
-            float newSize = originalFont.Size * scaleFactor;
-
-            return new Font(originalFont.FontFamily, newSize, originalFont.Style);
-        }
+        
     }
 }

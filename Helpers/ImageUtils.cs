@@ -34,6 +34,30 @@ namespace InfoRAMApp.Helpers
             return bmp;
         }
 
+        public static PictureBox CrearPictureBoxConImagenOriginal(string nombreImagen, Point location)
+        {
+            PictureBox pb = new PictureBox
+            {
+                Location = location,
+                SizeMode = PictureBoxSizeMode.Zoom // Permitir que el PictureBox escale la imagen
+            };
+
+            try
+            {
+                using var original = CargarImagenDesdeRecurso(nombreImagen);
+                if (original != null)
+                {
+                    pb.Image = new Bitmap(original); // Crear una copia de la imagen para evitar problemas de GDI+
+                }
+            }
+            catch (Exception)
+            {
+                // Errores de carga de imagen deben ser manejados por el código que llama
+            }
+
+            return pb;
+        }
+
         /// <summary>
         /// Carga una imagen embebida en el ensamblado desde el nombre de archivo (por ejemplo: "robot.png").
         /// </summary>

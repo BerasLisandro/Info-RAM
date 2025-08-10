@@ -7,10 +7,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableWindowsFormsHighDpiAutoResizing>true</EnableWindowsFormsHighDpiAutoResizing>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <ApplicationIcon>images\ram.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>InfoRAM</AssemblyName>
     <PlatformTarget>x64</PlatformTarget>
+    <DebugType>none</DebugType>
     <Prefer32Bit>false</Prefer32Bit>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
@@ -39,6 +41,8 @@
     <EmbeddedResource Include="images\robot.png" />
     <EmbeddedResource Include="images\ram.ico" />
     <EmbeddedResource Include="images\logo.ico" />
+    <EmbeddedResource Include="images\titulo.png" />
+    <EmbeddedResource Include="images\informacion.png" />
   </ItemGroup>
 
 </Project>
