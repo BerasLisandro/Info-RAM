@@ -39,7 +39,7 @@
 ## 📷 Capturas de pantalla
 
 <p align="center">
-  <img src="images/screenshot.png" alt="Vista previa de la aplicación" width="600"/>
+  <img src="images/screenshot.png?v=2" alt="Vista previa de la aplicación" width="600"/>
 </p>
 
 Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
