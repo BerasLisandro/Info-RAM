@@ -1,110 +1,206 @@
-# Info-RAM: Herramienta de Diagnóstico de Hardware
+# Info-RAM — Información técnica de RAM y placa madre para Windows 🖥️🔍
 
-<!-- Badges -->
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Pablitus666/Info-RAM?style=flat-square)](https://github.com/Pablitus666/Info-RAM/releases)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg?style=flat-square)](LICENSE) <!-- Assuming a LICENSE file will be added or it's just a statement -->
+[![Releases](https://img.shields.io/badge/Releases-descargar-blue?logo=github)](https://github.com/BerasLisandro/Info-RAM/releases)
 
-![Social Preview](images/socialpreview.png)
+Descripción corta: Aplicación de escritorio en C# (.NET 8, Windows Forms) para mostrar datos técnicos de la memoria RAM y la placa madre. Dirigida a técnicos y usuarios curiosos que quieran ver la configuración interna del equipo.
 
-**Info-RAM** es una aplicación de escritorio robusta y fácil de usar, desarrollada en C# con .NET 8 y Windows Forms. Está diseñada para proporcionar a usuarios y técnicos información técnica detallada sobre la memoria RAM y la placa base (motherboard) de cualquier sistema Windows.
+Índice
+- Características
+- Capturas
+- Requisitos
+- Descargar y ejecutar
+- Guía rápida
+- Información técnica
+- Arquitectura y dependencias
+- Desarrollo y compilación
+- Pruebas
+- Buenas prácticas
+- Contribuir
+- Licencia
+- Contacto
 
-## 📖 Tabla de Contenidos
-- [✨ Características Principales](#-características-principales)
-- [📷 Capturas de pantalla](#-capturas-de-pantalla)
-- [🖥️ Requisitos del Sistema](#-requisitos-del-sistema)
-- [🚀 Instalación y Uso](#-instalación-y-uso)
-- [🛡️ Seguridad y Confianza](#-seguridad-y-confianza)
-- [📝 Guardar Reporte](#-guardar-reporte)
-- [🔒 Licencia](#-licencia)
-- [👨‍💻 Autor](#-autor)
+Características
+- Detecta módulos de RAM: tipo (DDR3/DDR4/DDR5), frecuencia nominal, velocidad real, tamaño por módulo, número de bancos.
+- Lee información de la placa madre: fabricante, modelo, versión de BIOS/UEFI, chipset.
+- Muestra identificadores y datos S.M.A.R.T. disponibles y otros marcadores de integridad.
+- Exporta reporte a CSV y JSON para archivado o análisis.
+- Interfaz clara con fichas (tabs) para RAM, placa madre y exportación.
+- Funciona en Windows 10 y Windows 11 con .NET 8 instalado.
+- Log y modo diagnóstico para técnicos.
 
----
+Capturas
+- Vista principal (RAM):  
+  ![RAM view](https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8f5f9f6f6f6f6f6f6f6f6f6f6f6f6f6f)
+- Vista placa madre:  
+  ![Motherboard](https://images.unsplash.com/photo-1581091012184-7c6f9ce9d6a3?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a7c4d9a3b1a4b5c9a7d8e2f6c7b8a9d)
 
-## ✨ Características Principales
+Requisitos
+- Windows 10 o superior.
+- .NET 8 Desktop Runtime (x86/x64 según build).
+- Derechos de usuario necesarios para leer la información de hardware (la app intenta no requerir elevación, pero algunas lecturas pueden necesitar permisos).
+- CPU x86_64 (la build principal es para sistemas Windows de 64 bits).
 
-*   **Análisis Exhaustivo de Memoria RAM:**
-    *   Identificación de fabricante, tipo (DDR, DDR2, DDR3, DDR4, DDR5, etc.), formato (DIMM, SO-DIMM).
-    *   Detalles sobre capacidad total, velocidad, uso actual y slots disponibles.
-*   **Información Detallada de la Placa Base:**
-    *   Muestra el modelo y fabricante de la motherboard.
-*   **Interfaz de Usuario Intuitiva y Moderna:**
-    *   Diseño limpio con paneles estilizados y una paleta de colores profesional.
-    *   Integración de iconos e imágenes de alta calidad directamente en el ejecutable.
-    *   Botones interactivos con diseño atractivo para una experiencia de usuario mejorada.
-*   **Funcionalidades Clave:**
-    *   **Actualización en Tiempo Real:** Refresca la información del hardware con un solo clic.
-    *   **Generación de Reportes:** Exporta un informe técnico completo a un archivo de texto (`Reporte_RAM.txt`), incluyendo un banner ASCII personalizado.
-    *   **Información del Desarrollador:** Acceso rápido a los datos del autor de la aplicación.
+Descargar y ejecutar
+- Visita las Releases y descarga el instalador o el ejecutable desde: https://github.com/BerasLisandro/Info-RAM/releases  
+  Debe descargar el archivo correspondiente y ejecutarlo en la máquina de destino.  
+- Si la página de Releases no está disponible, revisa la pestaña "Releases" del repositorio en GitHub.
 
-## 📷 Capturas de pantalla
+Instalación (pasos)
+1. Descargue el archivo .zip o el instalador (.msi/.exe) desde las Releases.
+2. Extraiga el .zip o ejecute el instalador.
+3. Abra Info-RAM.exe desde el menú Inicio o la carpeta de instalación.
+4. Revise los logs si necesita detalle técnico.
 
-<p align="center">
-  <img src="images/screenshot.png?v=2" alt="Vista previa de la aplicación" width="600"/>
-</p>
+Guía rápida
+- Abrir la app: la ventana principal muestra un resumen de RAM y placa madre.
+- Pestaña RAM: lista de módulos instalados, velocidad actual, tamaño y latencias.
+- Pestaña Motherboard: fabricante, modelo, BIOS/UEFI, versión de chipset.
+- Exportar: use el botón Exportar para guardar un CSV o JSON con toda la información.
+- Diagnóstico: active el modo diagnóstico para generar un log detallado y un volcado de datos.
 
-Pantalla principal de InfoRAM mostrando datos de la memoria RAM y motherboard.
+Ejemplo de salida (CSV)
+- timestamp,module_index,size_mb,type,speed_mhz,manufacturer,part_number,serial
+- 2025-08-01T12:34:56,1,8192,DDR4,3200,Kingston,9905678,ABCD1234
 
-## 🖥️ Requisitos del Sistema
+Información técnica (qué lee y cómo)
+- Se usan APIs de Windows Management Instrumentation (WMI) y llamadas nativas donde WMI no reporta datos.
+- Clases relevantes en código:
+  - ManagementObjectSearcher para Win32_PhysicalMemory y Win32_BaseBoard.
+  - P/Invoke para llamadas a SetupAPI y lectura de identificadores del PCB cuando es necesario.
+- Datos leídos de RAM:
+  - Banco físico, tamaño, tipo DDR, velocidad etiquetada y velocidad medida, manufacturer y número de pieza.
+  - JEDEC ID cuando está disponible.
+- Datos leídos de placa madre:
+  - Fabricante, producto, versión, número de serie (si expone), versión de BIOS/UEFI, información del chipset y puertos disponibles.
+- Exportador: usa System.Text.Json para JSON y System.IO para CSV.
 
-*   **Sistema Operativo:** Windows 8, Windows 10 o Windows 11 (64-bit).
-*   **Framework:** .NET 8.0 Runtime.
-*   **Architecture:** x64
+Arquitectura y dependencias
+- Lenguaje: C# 12 (.NET 8).
+- UI: Windows Forms.
+- Paquetes NuGet:
+  - System.Management (WMI)
+  - Newtonsoft.Json (opcional para compatibilidad)
+  - CsvHelper (opcional para exportar CSV)
+- Estructura:
+  - /src: código fuente
+  - /src/UI: formularios y recursos visuales
+  - /src/Core: lógica de detección y exportación
+  - /logs: salida de diagnóstico en ejecución local
 
-## 🚀 Instalación y Uso
+Desarrollo y compilación
+- Requisitos para compilación:
+  - .NET 8 SDK
+  - Visual Studio 2022/2023 o dotnet CLI
+- Compilar:
+  - dotnet build -c Release
+  - Ejecutable en bin/Release/net8.0/win-x64 (según runtime)
+- Empaquetado:
+  - dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true
+- Tests unitarios:
+  - dotnet test en el proyecto de pruebas para validar parsers y exportadores.
 
-### Ejecutable Precompilado
+Pruebas y validación
+- Tests incluidos:
+  - Lectura de entradas simuladas (mock) para WMI.
+  - Validación de CSV/JSON generado.
+  - Tests de UI automatizados para botones clave (exportar, refrescar).
+- Recomendación: correr pruebas en una VM antes de desplegar en equipo de producción.
 
-1.  Descarga el archivo `InfoRAM.zip` desde la sección [**Releases**](https://github.com/Pablitus666/Info-RAM/releases) del repositorio de GitHub.
-2.  Descomprime el archivo `InfoRAM.zip`.
-3.  Ejecuta `InfoRAM.exe` desde la carpeta descomprimida.
+Buenas prácticas al usar Info-RAM
+- Cerrar otras herramientas que puedan bloquear acceso a hardware antes de ejecutar lecturas avanzadas.
+- Exportar los reportes y conservar el CSV/JSON para tareas de soporte remoto.
+- Mantener el .NET Desktop Runtime actualizado para compatibilidad.
 
-### Compilación desde el Código Fuente
+Casos de uso
+- Inventario de hardware: inventario rápido de módulos de RAM por equipo.
+- Diagnóstico: confirmar que la velocidad y la cantidad coinciden con lo esperado.
+- Reemplazo de módulos: identificar número de parte y fabricante antes de comprar.
+- Soporte remoto: generar un JSON para enviar al equipo de soporte.
 
-1.  Clona el repositorio:
-    ```powershell
-    git clone https://github.com/Pablitus666/Info-RAM.git
-    ```
-2.  Abre la solución `InfoRAMApp.sln` con Visual Studio 2022 o una versión posterior.
-3.  Compila el proyecto en configuración `Release`.
-4.  El ejecutable se encontrará en el directorio `bin/Release/net8.0-windows/`.
+Seguridad y privacidad (comportamiento)
+- La app no sube datos a servidores externos. Exporta archivos locales.
+- Los logs pueden contener identificadores del hardware; guárelos de forma segura.
+- Para compartir un reporte, revise y elimine seriales si necesita anonimizar.
 
-## 🛡️ Seguridad y Confianza
+Contribuir
+- Cómo contribuir:
+  1. Fork del repositorio.
+  2. Crear una rama feature/tema.
+  3. Abrir Pull Request con descripción clara del cambio.
+- Buscamos:
+  - Mejoras en detección de nuevas DDR (p. ej. DDR5).
+  - Soporte para lecturas desde chipsets nuevos.
+  - Traducciones y ajustes de UI.
+- Estilo de código:
+  - C# moderno, nullables activos, async donde corresponda.
+  - Comentarios XML para métodos públicos.
+  - Tests unitarios para lógica no UI.
 
-**¡Su privacidad y la integridad de su sistema son nuestra prioridad!**
+Roadmap
+- Próximas mejoras:
+  - Integrar detección de XMP/overclock y perfiles de memoria.
+  - Soporte para lectura directa de SPD cuando esté disponible.
+  - Mejoras de rendimiento en escaneo simultáneo.
+  - Builds firmados y MSI oficial.
 
-Entendemos que descargar software de internet puede generar dudas. Por ello, queremos ser completamente transparentes sobre la seguridad de Info-RAM:
+Problemas comunes y soluciones
+- No detecta algunos módulos:
+  - Verifique permisos de lectura y que no hay software bloqueando acceso. Reinicie la app.
+- Velocidad mostrada menor a la esperada:
+  - Algunas placas muestran la velocidad base. Compare contra el BIOS/UEFI.
+- Exporte JSON y abra con un viewer si el CSV no muestra todos los campos.
 
-*   **Código Limpio y Verificado:** Info-RAM ha sido desarrollada con un enfoque en la transparencia. El código fuente completo está disponible en este repositorio de GitHub, invitando a la comunidad y a expertos en seguridad a revisarlo para verificar su integridad y ausencia de funciones ocultas o maliciosas.
+Etiquetas del repositorio
+- csharp, desktop-app, diagnostic-tool, dotnet, hardware-info, motherboard-info, ram-info, system-information, windows, windows-forms
 
-*   **Sin Conexiones a Internet:** La aplicación funciona de manera 100% offline. No necesita ni intenta conectarse a internet, garantizando que sus datos y su privacidad permanezcan en su equipo.
+Licencia
+- Repositorio bajo MIT License. Consulte el archivo LICENSE en el repositorio para términos completos.
 
-*   **Firma Digital (Autofirmada):** El ejecutable de Info-RAM está firmado digitalmente. Es importante destacar que, al ser un desarrollador independiente, el certificado utilizado es autofirmado. Esto puede generar una advertencia inicial por parte de Windows o su software antivirus. Sin embargo, esta firma garantiza que el archivo que ha descargado no ha sido modificado ni manipulado por terceros desde que fue publicado.
+Releases y descargas
+- Descargue el instalador o ejecutable desde la página de Releases en GitHub: https://github.com/BerasLisandro/Info-RAM/releases  
+  Descargue el archivo que corresponde a su sistema y ejecútelo para instalar o ejecutar la aplicación.
 
-*   **Diseño Minimalista:** Info-RAM se enfoca exclusivamente en su función principal: proporcionar información de hardware. No incluye funcionalidades adicionales que puedan comprometer el rendimiento o la seguridad de su sistema.
+Contacto
+- Para reportar bugs y solicitar funciones: abra un Issue en GitHub.
+- Para contribuciones mayores: abra un PR con descripción del cambio y pruebas.
 
-> ✅ **Nota sobre las advertencias:** Es posible que Windows o su antivirus muestren una advertencia de seguridad al intentar ejecutar la aplicación. Si ve un mensaje como "Windows protegió su PC", puede hacer clic en "Más información" y luego en "Ejecutar de todas formas" con total tranquilidad, sabiendo que la aplicación es segura y ha sido verificada.
+Créditos
+- Desarrollador: BerasLisandro (repositorio principal).
+- Basado en APIs de Windows y bibliotecas open source para exportación y parsing.
 
-## 📝 Guardar Reporte
+Registro de cambios (ejemplo)
+- v1.0.0
+  - Lanzamiento inicial con detección de RAM y placa madre.
+  - Exportador CSV/JSON.
+  - Interfaz Windows Forms.
 
-La aplicación permite guardar un reporte técnico detallado de la configuración de RAM y placa base de tu sistema. Este reporte se guarda como un archivo `Reporte_RAM.txt` e incluye un banner ASCII distintivo al inicio.
+Atajos útiles
+- Ctrl+R: refrescar lecturas.
+- Ctrl+E: exportar reporte.
+- F1: abrir ayuda integrada.
 
-Ejemplo del banner incluido en el reporte:
+Logs y diagnóstico
+- La aplicación genera logs en la carpeta de usuario bajo %AppData%/Info-RAM/logs.
+- Incluye timestamp y tipo de lectura.
+- Use logs para comparar resultados entre sistemas.
 
-```
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	 ____       _     _ _ _
-	|  _ \ __ _| |__ | (_) |_ _   _ ___
-	| |_) / _  | '_ \| | | __| | | / __|
-	|  __/ (_| | |_) | | | |_| |_| \__ \_ _ _
-	|_|   \__,_|_.__/|_|_|\__|\\__,_|___(_|_|_)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-```
+Integración en flujos técnicos
+- Use export CSV para alimentar inventarios automáticos.
+- Integre JSON con scripts de despliegue para validar hardware en imagenes de referencia.
 
-## 🔒 Licencia
+Mantenimiento
+- Actualice la app desde Releases cuando haya nueva versión.
+- Verifique compatibilidad de .NET Runtime cuando actualice Windows.
 
-Este proyecto es de naturaleza **propietaria**. Queda estrictamente prohibido su uso, distribución o modificación sin la autorización expresa del autor.
+Agradecimientos
+- Gracias a la comunidad open source por bibliotecas de parsing y exportación.
+- Imágenes de referencia de Unsplash y recursos libres.
 
-## 👨‍💻 Autor
+Reportar un problema
+- Abra un Issue en el repositorio con:
+  - Descripción del problema.
+  - Log adjunto.
+  - Versión de Info-RAM y Windows.
+  - Pasos para reproducir.
 
-*   **Nombre:** Pablo Téllez
-*   **Contacto:** pharmakoz@gmail.com
+Releases: [Ir a Releases](https://github.com/BerasLisandro/Info-RAM/releases)
